@@ -62,7 +62,8 @@
   height: 100%;
   filter: blur(100px) saturate(150%);
   top: 80px;
-  opacity: 0.15;
+  opacity: 0.25;
+  transition: 0.5s;
 }
 .dark-gradient {
   height: -moz-fit-content;
@@ -77,6 +78,7 @@
   filter: blur(0px) saturate(130%);
   top: 0px;
   opacity: 1;
+  transition: 0.5s;
 }
 
 @media screen and (max-width: 640px) {
