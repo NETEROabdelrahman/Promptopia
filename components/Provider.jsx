@@ -12,7 +12,7 @@ const Provider = ({ children, session }) => {
       <div className='main'>
         <div className={colorMode ? 'light-gradient' : 'dark-gradient'} />
       </div>
-      <div className="app">
+      <div className="app2">
         <Nav colorMode={colorMode} setColorMode={setColorMode} />
       </div>
       {children}
