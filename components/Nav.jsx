@@ -7,7 +7,10 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = ({colorMode,setColorMode}) => {
     const { data: session } = useSession();
-    const [providers, setProviders] = useState(null);
+    
+  const [providers, setProviders] = useState(null);
+  
+  console.log(useSession())
   const [toggleDropdown, setToggleDropdown] = useState(false);
   
   const handleColor = (e) => {
