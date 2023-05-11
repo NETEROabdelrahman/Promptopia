@@ -5,10 +5,16 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
-const Nav = () => {
+const Nav = ({colorMode,setColorMode}) => {
     const { data: session } = useSession();
     const [providers, setProviders] = useState(null);
-    const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+  
+  const handleColor = (e) => {
+    e.preventDefault();
+    setColorMode(prev=>!prev)
+  }
+    
     
     
     useEffect(() => {
@@ -19,11 +25,12 @@ const Nav = () => {
     }, []);
 
 
-    console.log(providers)
-    console.log(session)
+    
 
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
+      <div className="flex">
+
       <Link href='/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/logo.svg'
@@ -31,9 +38,18 @@ const Nav = () => {
           width={30}
           height={30}
           className='object-contain'
-        />
+          />
         <p className='logo_text'>Promptopia</p>
       </Link>
+      <Image
+        src={colorMode?'/assets/icons/lightmode.svg':'/assets/icons/darkmood.svg'}
+        alt='logo'
+        width={30}
+        height={30}
+          className='object-contain ml-2 cursor-pointer'
+          onClick={handleColor}
+        />
+        </div>
 
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
